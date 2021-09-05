@@ -1,5 +1,6 @@
 import { Modal } from '../plugins/modal_window/modal.js';
 import { Carousel } from '../plugins/carousel/carousel.js';
+import { tooltip } from '../plugins/tooltip/tooltip.js';
 
 // Modal window //
 let modals = [
@@ -63,7 +64,7 @@ let images = [
   'https://ru.wikifur.com/w/images/thumb/4/41/Rainbow_Dash_3.png/667px-Rainbow_Dash_3.png',
 ];
 
-let elem = document.querySelector('.container');
+let elem = document.querySelector('.carousel-header');
 
 let carousel = new Carousel({
   elem: elem,
@@ -81,3 +82,14 @@ let carousel = new Carousel({
 
 carousel.create();
 // carousel2.create();
+
+// ------------------- //
+
+// Tooltip //
+
+document.body.addEventListener(
+  'mouseover',
+  tooltip.over.bind(tooltip)
+);
+
+document.body.addEventListener('mouseout', tooltip.out.bind(tooltip));

@@ -13,7 +13,7 @@ export class Carousel {
     }
 
     this.options.elem.insertAdjacentHTML(
-      'beforeend',
+      'afterend',
       `<div class="carousel">
           <div class="carousel-container" style="width: ${
             this.options.width * this.options.items
