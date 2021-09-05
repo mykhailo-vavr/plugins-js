@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: #ecf0f1;
+}
+
+.container {
+  width: 720px;
+  margin: 0 auto;
+  padding: 10px;
+  background: #bdc3c7;
+}
+
+.container h2 {
+  margin: 10px 0;
+}
+
+.btn {
+  padding: 5px 10px;
+  border: 1px solid #b64d6d;
+  cursor: pointer;
+  margin: 5px 10px 5px 0;
+}
+
+.btn:active {
+  opacity: 0.7;
+}
