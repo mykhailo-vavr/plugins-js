@@ -1,9 +1,7 @@
 .tooltip {
-  position: fixed;
+  position: absolute;
   z-index: 100;
-
   padding: 10px 20px;
-
   border: 1px solid #b3c9ce;
   border-radius: 4px;
   text-align: center;

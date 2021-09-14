@@ -2,7 +2,14 @@ import { Modal } from '../plugins/modal_window/modal.js';
 import { Carousel } from '../plugins/carousel/carousel.js';
 import { tooltip } from '../plugins/tooltip/tooltip.js';
 
-// Modal window //
+/* -------------------
+-
+-
+-     Modal window
+-
+-
+------------------- */
+
 let modals = [
   new Modal({
     title: 'Fullmetal Alchemist',
@@ -33,7 +40,7 @@ let modals = [
 ];
 
 modals.forEach((item) => {
-  window[item.options.id] = item;
+  window[item.options.id] = item; // to interact from console
   item.create();
 });
 
@@ -50,9 +57,13 @@ function buttonClick(event) {
   }
 }
 
-// ------------------- //
-
-// Carousel //
+/* -------------------
+-
+-
+-     Carousel
+-
+-
+------------------- */
 
 let images = [
   'https://besthqwallpapers.com/Uploads/17-2-2018/41098/thumb2-zero-two-manga-anime-characters-pink-hair-darling-in-the-franxx.jpg',
@@ -83,9 +94,13 @@ let carousel = new Carousel({
 carousel.create();
 // carousel2.create();
 
-// ------------------- //
-
-// Tooltip //
+/* -------------------
+-
+-
+-     Tooltip
+-
+-
+------------------- */
 
 document.body.addEventListener(
   'mouseover',
