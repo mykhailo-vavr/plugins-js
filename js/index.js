@@ -1,6 +1,7 @@
 import { Modal } from '../plugins/modal_window/modal.js';
 import { Carousel } from '../plugins/carousel/carousel.js';
 import { tooltip } from '../plugins/tooltip/tooltip.js';
+import { Slider } from '../plugins/slider/slider.js';
 
 /* -------------------
 -
@@ -75,24 +76,16 @@ let images = [
   'https://ru.wikifur.com/w/images/thumb/4/41/Rainbow_Dash_3.png/667px-Rainbow_Dash_3.png',
 ];
 
-let elem = document.querySelector('.carousel-header');
+let carouselHeader = document.querySelector('.carousel-header');
 
 let carousel = new Carousel({
-  elem: elem,
+  elem: carouselHeader,
   items: 3,
   width: 200,
   images: images,
 });
 
-// let carousel2 = new Carousel({
-//   elem: elem,
-//   items: 4,
-//   width: 150,
-//   images: images,
-// });
-
 carousel.create();
-// carousel2.create();
 
 /* -------------------
 -
@@ -108,3 +101,42 @@ document.body.addEventListener(
 );
 
 document.body.addEventListener('mouseout', tooltip.out.bind(tooltip));
+
+/* -------------------
+-
+-
+-     Slider
+-
+-
+------------------- */
+
+let sliderHeader = document.querySelector('.slider-header');
+
+let slider = new Slider({
+  elem: sliderHeader,
+  images: [
+    {
+      url: 'https://images.unsplash.com/photo-1589656966895-2f33e7653819?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80',
+      title: 'Bear',
+    },
+    {
+      url: 'https://images.unsplash.com/photo-1425082661705-1834bfd09dca?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=755&q=80',
+      title: 'Hamster',
+    },
+    {
+      url: 'https://images.unsplash.com/photo-1489084917528-a57e68a79a1e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80',
+      title: 'Cat',
+    },
+    {
+      url: 'https://images.unsplash.com/photo-1470093851219-69951fcbb533?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80',
+      title: 'Polar fox',
+    },
+    {
+      url: 'https://images.unsplash.com/photo-1506099914961-765be7a97019?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80',
+      title: 'Deer',
+    },
+  ],
+});
+
+slider.create();
+// slider.destroy();
