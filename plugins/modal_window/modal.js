@@ -5,6 +5,7 @@ export class Modal {
     // }
     // Modal.exists = true;
     // Modal.instance = this;
+    this.boundOnClick = this.onClick.bind(this);
     this.options = options;
     this.options.isClosable = this.options.isClosable ?? true;
   }
@@ -58,7 +59,7 @@ export class Modal {
 
     this.modalBody.style.width = this.options.width || '';
 
-    this.modal.addEventListener('click', this.onClick.bind(this));
+    this.modal.addEventListener('click', this.boundOnClick); //
   }
 
   onClick(event) {
@@ -86,10 +87,7 @@ export class Modal {
   destroy() {
     this.modal.remove();
     this.isCreated = false;
-    this.modalBody.removeEventListener(
-      'click',
-      this.onClick.bind(this)
-    );
+    this.modalBody.removeEventListener('click', this.boundOnClick);
     // Modal.exists = false;
   }
 }

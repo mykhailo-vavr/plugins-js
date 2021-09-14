@@ -1,10 +1,17 @@
 export class Slider {
   constructor(options) {
     this.options = options;
-    this.boundOnClick = this.onClick.bind(this);
+    this.boundOnClick = this.onClick.bind(this); // it is making for correct removing of listener
   }
 
   create() {
+    if (this.isCreated) {
+      return console.log(
+        'This slider is already created\nOptions: ',
+        this.options
+      );
+    }
+
     let sliderItems = this.createSliderItems();
     this.sliderItems = sliderItems;
 
@@ -18,6 +25,7 @@ export class Slider {
     this.slider = slider;
 
     slider.append(...sliderItems);
+    this.isCreated = true;
   }
 
   createSliderItems() {

@@ -2,6 +2,7 @@ export class Carousel {
   constructor(options) {
     this.options = options;
     this.position = 0;
+    this.boundOnclick = this.onClick.bind(this);
   }
 
   create() {
@@ -30,7 +31,7 @@ export class Carousel {
       '.carousel-gallery'
     );
 
-    document.addEventListener('click', this.onClick.bind(this));
+    document.addEventListener('click', this.boundOnclick);
   }
 
   createItem(url) {
