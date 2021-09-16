@@ -1,4 +1,4 @@
-export class Slider {
+export class Cards {
   constructor(options) {
     this.options = options;
     this.boundOnClick = this.onClick.bind(this); // it is making for correct removing of listener
@@ -7,7 +7,7 @@ export class Slider {
   create() {
     if (this.isCreated) {
       return console.log(
-        'This slider is already created\nOptions: ',
+        'This cards is already created\nOptions: ',
         this.options
       );
     }
@@ -20,7 +20,7 @@ export class Slider {
     this.currentItem.classList.add('active');
 
     let slider = document.createElement('div');
-    slider.classList.add('slider');
+    slider.classList.add('cards');
     this.options.elem.after(slider);
     this.slider = slider;
 
@@ -36,7 +36,7 @@ export class Slider {
 
   createSliderItem(url, title) {
     let sliderItem = document.createElement('div');
-    sliderItem.classList.add('slider-item');
+    sliderItem.classList.add('cards-item');
     sliderItem.style.backgroundImage = `url(${url || ''})`;
 
     let h3 = document.createElement('h3');
@@ -44,8 +44,6 @@ export class Slider {
     sliderItem.append(h3);
 
     sliderItem.addEventListener('click', this.boundOnClick);
-
-    console.log(sliderItem);
 
     return sliderItem;
   }
@@ -60,6 +58,8 @@ export class Slider {
     this.sliderItems.forEach((item) => {
       item.removeEventListener('click', this.boundOnClick);
     });
-    this.options.elem.remove(this.slider);
+    console.log(this.slider);
+
+    this.slider.remove();
   }
 }

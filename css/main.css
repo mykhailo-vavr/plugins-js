@@ -11,14 +11,19 @@ body {
 }
 
 .container {
-  width: 1000px;
+  width: 95%;
+  height: 100%;
   margin: 0 auto;
   padding: 10px;
   background: #bdc3c7;
 }
 
-.container h2 {
-  margin: 10px 0;
+.container > h2 {
+  margin: 40px 0 10px 0;
+}
+
+.container > h2:first-child {
+  margin-top: 0;
 }
 
 .btn {
