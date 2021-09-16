@@ -12,40 +12,40 @@ export class Cards {
       );
     }
 
-    let sliderItems = this.createSliderItems();
-    this.sliderItems = sliderItems;
+    let cards = document.createElement('div');
+    cards.classList.add('cards');
+    cards.style.height = this.options.height;
+    cards.style.width = this.options.width;
 
-    this.currentItem =
-      sliderItems[Math.floor(sliderItems.length / 2)];
-    this.currentItem.classList.add('active');
+    let cardsItems = this.createCardsItems();
+    this.setCurrentItem(cardsItems);
+    cards.append(...cardsItems);
 
-    let slider = document.createElement('div');
-    slider.classList.add('cards');
-    this.options.elem.after(slider);
-    this.slider = slider;
-
-    slider.append(...sliderItems);
+    this.options.elem.after(cards);
+    this.cards = cards;
     this.isCreated = true;
   }
 
-  createSliderItems() {
-    return this.options.images.map(({ url, title }) => {
-      return this.createSliderItem(url, title);
+  setCurrentItem(cardsItems) {
+    this.currentItem = cardsItems[Math.floor(cardsItems.length / 2)];
+    this.currentItem.classList.add('active');
+  }
+
+  createCardsItems() {
+    return this.options.images.map((item) => {
+      return this.createCardsItem(item);
     });
   }
 
-  createSliderItem(url, title) {
-    let sliderItem = document.createElement('div');
-    sliderItem.classList.add('cards-item');
-    sliderItem.style.backgroundImage = `url(${url || ''})`;
+  createCardsItem({ url, title }) {
+    let cardsItem = document.createElement('div');
+    cardsItem.classList.add('cards-item');
+    cardsItem.style.backgroundImage = `url(${url || ''})`;
+    cardsItem.innerHTML = `<h3>${title || ''}</h3>`;
 
-    let h3 = document.createElement('h3');
-    h3.textContent = title || '';
-    sliderItem.append(h3);
+    cardsItem.addEventListener('click', this.boundOnClick);
 
-    sliderItem.addEventListener('click', this.boundOnClick);
-
-    return sliderItem;
+    return cardsItem;
   }
 
   onClick(event) {
@@ -55,11 +55,9 @@ export class Cards {
   }
 
   destroy() {
-    this.sliderItems.forEach((item) => {
+    this.cardsItems.forEach((item) => {
       item.removeEventListener('click', this.boundOnClick);
     });
-    console.log(this.slider);
-
-    this.slider.remove();
+    this.cards.remove();
   }
 }

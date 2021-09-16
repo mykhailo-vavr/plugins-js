@@ -115,6 +115,8 @@ let cardsHeader = document.querySelector('.cards-header');
 
 let cards = new Cards({
   elem: cardsHeader,
+  height: '80vh',
+  width: '100%',
   images: [
     {
       url: 'https://images.unsplash.com/photo-1589656966895-2f33e7653819?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80',

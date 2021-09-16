@@ -1,11 +1,10 @@
 .cards {
-  width: 80%;
   display: flex;
   padding: 0px;
 }
 
 .cards-item {
-  height: 80vh;
+  height: 100%;
   border-radius: 20px;
   margin: 7px;
   cursor: pointer;
