@@ -1,1 +1,1 @@
-# plugins_js
+### Different UI plugins written on vanilla JS
